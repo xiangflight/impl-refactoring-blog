@@ -18,11 +18,19 @@ public class Rental {
         this.dayRented = dayRented;
     }
 
-    public int getDayRented() {
+    private int getDayRented() {
         return dayRented;
     }
 
-    public Movie getMovie() {
+    Movie getMovie() {
         return movie;
+    }
+
+    double getCharge() {
+        return movie.getCharge(dayRented);
+    }
+
+    int getFrequentRenterPoints() {
+        return movie.getFrequentRenterPoints(dayRented);
     }
 }

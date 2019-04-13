@@ -1,0 +1,25 @@
+package chapter1;
+
+/**
+ * @author xiang.zhao@woqutech.com
+ * @version 1.0
+ * @date 2019-04-13 10:54
+ */
+
+public class NewReleasePrice extends Price {
+
+    @Override
+    int getPriceCode() {
+        return Movie.NEW_RELEASE;
+    }
+
+    @Override
+    double getCharge(int daysRented) {
+        return daysRented * 3;
+    }
+
+    @Override
+    int getFrequentRenterPoints(int daysRented) {
+        return (daysRented > 1) ? 2: 1;
+    }
+}
