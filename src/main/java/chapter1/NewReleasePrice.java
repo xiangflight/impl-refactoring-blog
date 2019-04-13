@@ -6,7 +6,7 @@ package chapter1;
  * @date 2019-04-13 10:54
  */
 
-public class NewReleasePrice extends Price {
+class NewReleasePrice extends Price {
 
     @Override
     int getPriceCode() {
