@@ -14,7 +14,7 @@ public class SplitTemporaryVariableExample {
     private int delay = 1;
 
     double getDistanceTravelled(int time) {
-        if(time - delay > 0) {
+        if (time - delay > 0) {
             return secondaryResult(time);
         } else {
             return primaryResult(time);
@@ -35,7 +35,7 @@ public class SplitTemporaryVariableExample {
     }
 
     private double secondaryResult(int time) {
-        return  primaryResult(time) + primaryVel() * (time - delay) +
+        return primaryResult(time) + primaryVel() * (time - delay) +
                 0.5 * secondaryAcc() * (time - delay) * (time - delay);
     }
 

@@ -12,8 +12,8 @@ import java.util.List;
 public class SubstituteAlgorithmSummary {
 
     String foundPerson(String[] peoples) {
-        List candidates = Arrays.asList(new String[] {"Don", "John", "Kent"});
-        for (String people: peoples) {
+        List candidates = Arrays.asList(new String[]{"Don", "John", "Kent"});
+        for (String people : peoples) {
             if (candidates.contains(people)) {
                 return people;
             }

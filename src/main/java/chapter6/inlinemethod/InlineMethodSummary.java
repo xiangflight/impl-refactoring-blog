@@ -11,7 +11,7 @@ public class InlineMethodSummary {
     private int numberOflateDeliveries;
 
     int getRating() {
-        return (numberOflateDeliveries > 5) ? 2: 1;
+        return (numberOflateDeliveries > 5) ? 2 : 1;
     }
 
 }

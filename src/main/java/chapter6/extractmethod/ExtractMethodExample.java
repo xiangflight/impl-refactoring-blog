@@ -1,6 +1,5 @@
 package chapter6.extractmethod;
 
-import java.util.Enumeration;
 import java.util.Vector;
 
 /**
@@ -28,14 +27,13 @@ public class ExtractMethodExample {
      */
     private double getOutstanding(double initialValue) {
         double result = initialValue;
-        for (Order each: orders) {
+        for (Order each : orders) {
             result += each.getAmount();
         }
         return result;
     }
 
     /**
-     *
      * @param outstanding 传入的参数，在源代码段中是只读的
      */
     private void printDetails(double outstanding) {

@@ -1,6 +1,5 @@
 package chapter1;
 
-import java.util.Enumeration;
 import java.util.Vector;
 
 /**
@@ -30,7 +29,7 @@ public class Customer {
 
     public String statement() {
         String result = "Rental Record for " + getName() + "\n";
-        for (Rental each: rentals) {
+        for (Rental each : rentals) {
             // show figures for this rental
             result += "\t" + each.getMovie().getTitle() + "\t" +
                     each.getCharge() + "\n";
@@ -43,19 +42,19 @@ public class Customer {
 
     public String htmlStatement() {
         String result = "<H1>Rentals for <EM>" + getName() + "</EM></H1><P>\n";
-        for (Rental each: rentals) {
+        for (Rental each : rentals) {
             result += each.getMovie().getTitle() + ": " + each.getCharge() + "<BR>\n";
         }
         result += "<P>You owe <EM>" + getTotalCharge() + "</EM><P>\n";
         result += "On this rental you earned <EM>" +
-                    getTotalFrequentRenterPoints() +
-                    "<EM> frequent renter points<P>";
+                getTotalFrequentRenterPoints() +
+                "<EM> frequent renter points<P>";
         return result;
     }
 
     private double getTotalCharge() {
         double result = 0;
-        for (Rental each: rentals) {
+        for (Rental each : rentals) {
             result += each.getCharge();
         }
         return result;
@@ -63,7 +62,7 @@ public class Customer {
 
     private int getTotalFrequentRenterPoints() {
         int result = 0;
-        for (Rental each: rentals) {
+        for (Rental each : rentals) {
             result += each.getFrequentRenterPoints();
         }
         return result;
