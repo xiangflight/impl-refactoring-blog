@@ -1,4 +1,4 @@
-package chapter8.replacedatavaluewithobject;
+package chapter8.changevaluetoreference;
 
 /**
  * @author xiang.zhao@woqutech.com
@@ -10,7 +10,7 @@ public class Order {
     private Customer customer;
 
     public Order(String customerName) {
-        customer = new Customer(customerName);
+        customer = Customer.getNamed(customerName);
     }
 
     public String getCustomerName() {
@@ -18,6 +18,6 @@ public class Order {
     }
 
     public void setCustomer(String customerName) {
-        customer = new Customer(customerName);
+        customer = Customer.getNamed(customerName);
     }
 }
