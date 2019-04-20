@@ -3,6 +3,10 @@ package chapter8.duplicateobserverddata;
 import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author xiang.zhao@woqutech.com
@@ -10,10 +14,49 @@ import java.awt.event.FocusEvent;
  * @date 2019-04-19 22:08
  */
 
-public class IntervalWindow extends Frame {
+public class IntervalWindow extends Frame implements Observer {
+    private static final String INTEGER_REGEX = "[0-9]*";
+
+    private Interval subject;
     private TextField startField;
     private TextField endField;
     private TextField lengthField;
+
+    IntervalWindow() {
+        subject = new Interval();
+        subject.addObserver(this);
+        update(subject, null);
+    }
+
+    public void update(Observable o, Object arg) {
+        endField.setText(subject.getEnd());
+        startField.setText(subject.getStart());
+        lengthField.setText(subject.getLength());
+    }
+
+    String getLength() {
+        return subject.getLength();
+    }
+
+    void setLength(String text) {
+        subject.setLength(text);
+    }
+
+    String getStart() {
+        return subject.getStart();
+    }
+
+    void setStart(String text) {
+        subject.setStart(text);
+    }
+
+    String getEnd() {
+        return subject.getEnd();
+    }
+
+    void setEnd(String text) {
+        subject.setEnd(text);
+    }
 
     class SymFocus extends FocusAdapter {
         @Override
@@ -29,36 +72,33 @@ public class IntervalWindow extends Frame {
         }
 
         private void lengthFieldFocusLost(FocusEvent e) {
-            if (isNotInteger(lengthField.getText())) {
-                lengthField.setText("0");
+            setLength(lengthField.getText());
+            if (isNotInteger(getLength())) {
+                setLength("0");
             }
-            calculateEnd();
-        }
-
-        private void calculateEnd() {
-            try {
-
-            }
-
+            subject.calculateEnd();
         }
 
         private void endFieldFocusLost(FocusEvent e) {
-            if (isNotInteger(endField.getText())) {
-                endField.setText("0");
+            setEnd(endField.getText());
+            if (isNotInteger(getEnd())) {
+                setEnd("0");
             }
-            calculateLength();
+            subject.calculateLength();
         }
 
-        private void calculateLength() {
-
+        private boolean isNotInteger(String text) {
+            Pattern pattern = Pattern.compile(INTEGER_REGEX);
+            Matcher isNum = pattern.matcher(text);
+            return isNum.matches();
         }
 
         private void startFieldFocusLost(FocusEvent e) {
-            if (isNotInteger(startField.getText())) {
-                startField.setText("0");
+            setStart(startField.getText());
+            if (isNotInteger(getStart())) {
+                setStart("0");
             }
-            calculateLength();
+            subject.calculateLength();
         }
     }
-
 }
