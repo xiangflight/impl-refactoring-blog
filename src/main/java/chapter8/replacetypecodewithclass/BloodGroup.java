@@ -19,11 +19,11 @@ public class BloodGroup {
         this.code = code;
     }
 
-    private int getCode() {
-        return code;
-    }
-
     private static BloodGroup code(int arg) {
         return values[arg];
+    }
+
+    private int getCode() {
+        return code;
     }
 }

@@ -9,9 +9,9 @@ package chapter8.replacearraywithobject;
 public class ReplaceArrayWithObjectSummary {
 
     public static void main(String[] args) {
-       Performance performance = new Performance();
-       performance.setName("Liverpool");
-       performance.setWins("15");
+        Performance performance = new Performance();
+        performance.setName("Liverpool");
+        performance.setWins("15");
     }
 
 }

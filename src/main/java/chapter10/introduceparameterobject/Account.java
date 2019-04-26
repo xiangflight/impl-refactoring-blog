@@ -1,6 +1,5 @@
 package chapter10.introduceparameterobject;
 
-import java.util.Date;
 import java.util.Vector;
 
 /**
@@ -14,7 +13,7 @@ public class Account {
 
     double getFlowBetween(DateRange range) {
         double result = 0;
-        for (Entry each: entries) {
+        for (Entry each : entries) {
             if (range.includes(each.getDate())) {
                 result += each.getValue();
             }

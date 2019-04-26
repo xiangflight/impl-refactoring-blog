@@ -33,8 +33,8 @@ public class Employee {
                 return monthlySalary + commission;
             case EmployeeType.MANAGER:
                 return monthlySalary + bonus;
-                default:
-                    throw new RuntimeException("Incorrect Employee");
+            default:
+                throw new RuntimeException("Incorrect Employee");
         }
     }
 }

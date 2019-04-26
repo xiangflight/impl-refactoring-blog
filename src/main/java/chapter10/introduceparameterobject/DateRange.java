@@ -26,7 +26,7 @@ class DateRange {
     }
 
     boolean includes(Date date) {
-        return  (date.equals(getStart()) || date.equals(getEnd())
+        return (date.equals(getStart()) || date.equals(getEnd())
                 || (date.after(getStart()) && date.before(getEnd())));
     }
 }

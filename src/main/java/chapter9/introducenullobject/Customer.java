@@ -11,7 +11,12 @@ public class Customer implements Nullable {
     private String plan;
     private String paymentHistory;
 
-    protected Customer() {}
+    protected Customer() {
+    }
+
+    static Customer newNull() {
+        return new NullCustomer();
+    }
 
     public String getName() {
         return name;
@@ -28,9 +33,5 @@ public class Customer implements Nullable {
     @Override
     public boolean isNull() {
         return false;
-    }
-
-    static Customer newNull() {
-        return new NullCustomer();
     }
 }

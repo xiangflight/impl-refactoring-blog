@@ -13,11 +13,11 @@ public class Person {
         this.bloodGroup = bloodGroup;
     }
 
-    public void setBloodGroup(BloodGroup bloodGroup) {
-        this.bloodGroup = bloodGroup;
-    }
-
     public BloodGroup getBloodGroup() {
         return bloodGroup;
+    }
+
+    public void setBloodGroup(BloodGroup bloodGroup) {
+        this.bloodGroup = bloodGroup;
     }
 }

@@ -9,6 +9,7 @@ import java.util.HashMap;
  */
 
 class Customer {
+    private static HashMap<String, Customer> instances = new HashMap<String, Customer>();
     private final String name;
 
     private Customer(String name) {
@@ -16,20 +17,18 @@ class Customer {
         loadCustomers();
     }
 
-    public String getName() {
-        return name;
-    }
-
     public static Customer getNamed(String name) {
         return instances.get(name);
     }
-
-    private static HashMap<String, Customer> instances = new HashMap<String, Customer>();
 
     static void loadCustomers() {
         new Customer("Lemon Car Hire").store();
         new Customer("Associated Coffee Machines").store();
         new Customer("Bilston Gasworks").store();
+    }
+
+    public String getName() {
+        return name;
     }
 
     private void store() {

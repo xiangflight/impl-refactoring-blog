@@ -7,7 +7,9 @@ package chapter9.replaceconditionalwithpolymorphism;
  */
 
 abstract class EmployeeType {
-    abstract int getTypeCode();
+    static final int ENGINEER = 0;
+    static final int SALESMAN = 1;
+    static final int MANAGER = 2;
 
     static EmployeeType newType(int code) {
         switch (code) {
@@ -23,9 +25,7 @@ abstract class EmployeeType {
         }
     }
 
-    static final int ENGINEER = 0;
-    static final int SALESMAN = 1;
-    static final int MANAGER = 2;
+    abstract int getTypeCode();
 
     abstract int payAmount(Employee emp);
 }

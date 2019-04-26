@@ -9,16 +9,16 @@ package chapter8.selfencapsulatefield;
 public class IntRange {
     private int low, high;
 
+    IntRange(int low, int high) {
+        initialize(low, high);
+    }
+
     boolean includes(int arg) {
         return arg >= getLow() && arg <= getHigh();
     }
 
     void grow(int factor) {
         setHigh(getHigh() * factor);
-    }
-
-    IntRange(int low, int high) {
-        initialize(low, high);
     }
 
     private void initialize(int low, int high) {

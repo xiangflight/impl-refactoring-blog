@@ -7,28 +7,29 @@ package chapter8.replacetypecodewithsubclasses;
  */
 
 abstract class Employee {
-    private int type;
     static final int ENGINEER = 0;
     static final int SALESMAN = 1;
     static final int MANAGER = 2;
+    private int type;
+
+    Employee() {
+    }
+
+    private Employee(int type) {
+        this.type = type;
+    }
 
     static Employee create(int type) {
         switch (type) {
             case ENGINEER:
                 return new Engineer();
             case SALESMAN:
-                return  new Salesman();
+                return new Salesman();
             case MANAGER:
                 return new Manager();
-                default:
-                    throw new IllegalArgumentException("Incorrect type code value");
+            default:
+                throw new IllegalArgumentException("Incorrect type code value");
         }
-    }
-
-    Employee() {}
-
-    private Employee(int type) {
-        this.type = type;
     }
 
     /**

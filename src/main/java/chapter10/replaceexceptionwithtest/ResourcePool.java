@@ -1,6 +1,5 @@
 package chapter10.replaceexceptionwithtest;
 
-import java.util.EmptyStackException;
 import java.util.Stack;
 
 /**
@@ -9,6 +8,9 @@ import java.util.Stack;
  */
 
 public class ResourcePool {
+
+    Stack available;
+    Stack allocated;
 
     Resource getResource() {
         Resource result;
@@ -20,7 +22,4 @@ public class ResourcePool {
         allocated.push(result);
         return result;
     }
-
-    Stack available;
-    Stack allocated;
 }
